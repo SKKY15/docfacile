@@ -15,6 +15,8 @@ android {
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "GOOGLE_API_KEY", "\"${project.properties["GOOGLE_API_KEY"]}\"")
+        manifestPlaceholders["GOOGLE_API_KEY"] = project.properties["GOOGLE_API_KEY"] as String
     }
     buildFeatures {
         viewBinding = true
