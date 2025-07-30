@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.StartActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/doc1"
+        android:visibility="visible"
+        android:id="@+id/doc1"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/doc2"
+        android:visibility="gone"
+        android:id="@+id/doc2"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/doc3"
+        android:visibility="gone"
+        android:id="@+id/doc3"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetdoctors"
+            android:layout_marginTop="24dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:id="@+id/txt1"
+            android:textColor="#374151"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetdoctors"
+            android:layout_marginTop="24dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:id="@+id/txt2"
+            android:visibility="gone"
+            android:textColor="#374151"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetdoctors"
+            android:layout_marginTop="24dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:id="@+id/txt3"
+            android:visibility="gone"
+            android:textColor="#374151"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetdoctorstext"
+            android:textSize="16sp"
+            android:id="@+id/tx1"
+            android:layout_marginVertical="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetdoctorstext2"
+            android:textSize="16sp"
+            android:id="@+id/tx3"
+            android:visibility="gone"
+            android:layout_marginVertical="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="28dp"
+            android:text="@string/next"
+            android:id="@+id/nextButton"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_next"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginVertical="15dp"
+            >
+            <View
+                android:id="@+id/indicator1"
+                android:layout_width="30dp"
+                android:layout_height="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/bg_button_next"/>
+            <View
+                android:id="@+id/indicator2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/bg_rounded_grey"/>
+            <View
+                android:id="@+id/indicator3"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/bg_rounded_grey"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:text="@string/skip"
+            android:id="@+id/skip"
+            android:textColor="#aaa"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

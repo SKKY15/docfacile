@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/order_default"
+        android:title="@string/dflt" />
+    <item
+        android:id="@+id/order_rating"
+        android:title="@string/obra" />
+    <item
+        android:id="@+id/order_reviews"
+        android:title="@string/obre" />
+    <item
+        android:id="@+id/order_name"
+        android:title="@string/obn" />
+</menu>
