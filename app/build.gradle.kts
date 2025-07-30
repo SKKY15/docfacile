@@ -1,3 +1,14 @@
+import java.util.Properties
+
+val localProperties = Properties().apply {
+    val localFile = rootProject.file("local.properties")
+    if (localFile.exists()) {
+        localFile.inputStream().use { load(it) }
+    }
+}
+
+val googleApiKey = localProperties["GOOGLE_API_KEY"] as String?
+    ?: throw GradleException("GOOGLE_API_KEY is missing in local.properties")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -14,12 +25,13 @@ android {
         versionCode = 1
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "GOOGLE_API_KEY", "\"${project.properties["GOOGLE_API_KEY"]}\"")
-        manifestPlaceholders["GOOGLE_API_KEY"] = project.properties["GOOGLE_API_KEY"] as String
+        manifestPlaceholders["GOOGLE_API_KEY"] = googleApiKey
+        buildConfigField("String", "GOOGLE_API_KEY", "\"$googleApiKey\"")
     }
+
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     buildTypes {
         release {
@@ -29,18 +41,26 @@ android {
                 "proguard-rules.pro"
             )
         }
+        getByName("debug") {
+            manifestPlaceholders["GOOGLE_API_KEY"] = googleApiKey
+        }
+        getByName("release") {
+            manifestPlaceholders["GOOGLE_API_KEY"] = googleApiKey
+        }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
-dependencies {
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

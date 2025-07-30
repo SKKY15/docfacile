@@ -27,6 +27,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.startup_app.BuildConfig
 import com.example.startup_app.R
 import com.example.startup_app.adapters.HospitalCardAdapter
 import com.example.startup_app.databinding.ActivityMapsBinding
@@ -298,11 +299,7 @@ class MapsActivity : BaseActivity(), OnMapReadyCallback {
 
 
 
-    private fun getApiKeyFromManifest(): String {
-        val appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
-        val apiKey = appInfo.metaData?.getString("com.google.android.geo.API_KEY")
-        return apiKey ?: throw IllegalStateException("API Key not found in manifest")
-    }
+
 
     private fun drawRouteWithRetrofit(
         destinationLatLng: LatLng,
@@ -326,7 +323,8 @@ class MapsActivity : BaseActivity(), OnMapReadyCallback {
         val call = RetrofitClient.directionsApiService.getDirections(
             origin = origin,
             destination = destination,
-            apiKey = getApiKeyFromManifest()
+            apiKey = BuildConfig.GOOGLE_API_KEY
+
         )
 
         call.enqueue(object : Callback<DirectionsResponse> {

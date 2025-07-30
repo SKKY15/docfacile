@@ -183,12 +183,13 @@ class AppointmentActivity : BaseActivity() {
             }
             val fullDateStr = "$formattedDate ${"%02d".format(selectedHour)}:${"%02d".format(selectedMinute)}"
             val sdf = SimpleDateFormat("EEEE dd MMMM yyyy HH:mm", Locale.getDefault())
-            try {
-                bookingdate = sdf.parse(fullDateStr)!!
-                Log.d("SS", "Parsed bookingDate: $bookingdate")
-            } catch (e: Exception) {
-                e.printStackTrace()
+            val parsedDate = sdf.parse(fullDateStr)
+
+            if (parsedDate != null) {
+                bookingdate = parsedDate
+            } else {
                 Toast.makeText(this, "Erreur lors de la lecture de la date", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
             val worktime = doctor1?.workingTime
